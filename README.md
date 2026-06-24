@@ -53,9 +53,8 @@ npm run dev
 
 ## Estructura del proyecto
 
+```text
 mi-micro-accesible/
-│
-├── node_modules/...
 │
 ├── src/
 │   ├── public/
@@ -92,6 +91,7 @@ mi-micro-accesible/
 ├── package.json
 │
 └── README.md
+```
 ---
 
 ## Funcionalidades
