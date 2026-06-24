@@ -54,37 +54,44 @@ npm run dev
 ## Estructura del proyecto
 
 mi-micro-accesible/
-
-src/
-├── public/
-│   ├── css/...
-│   │
-│   ├── js/
-│   │   ├── app.js
-│   │   ├── mapa.js
-│   │   ├── speech.js
-│   │   ├── recorridos.js
-│   │   └── models/...
-│   │
-│   ├── assets/...
-│   │
-│   └── index.html
-│   
-└── server/
-    ├── app.js
-    │
-    ├── routes/
-    │   ├── paradas.routes.js
-    │   ├── lineas.routes.js
-    │   └── recorridos.routes.js
-    │
-    └── database/
-        └── connection.js
-
-README.md
-
-package.json
-
+│
+├── node_modules/...
+│
+├── src/
+│   ├── public/
+│   │   ├── assets/...
+│   │   │
+│   │   ├── css/stylesheet.css
+│   │   │
+│   │   ├── js/
+│   │   │   ├── models/
+│   │   │   │   ├── Linea.js
+│   │   │   │   ├── Parada.js
+│   │   │   │   └── Recorrido.js
+│   │   │   │         
+│   │   │   ├── app.js
+│   │   │   ├── mapa.js
+│   │   │   ├── recorridos.js
+│   │   │   └── speech.js
+│   │   │
+│   │   └── index.html
+│   │   
+│   └── server/
+│       ├── database/
+│       │   └── connection.js
+│       │
+│       ├── routes/
+│       │   ├── lineas.routes.js
+│       │   ├── paradas.routes.js
+│       │   └── recorridos.routes.js
+│       │
+│       └── app.js
+│
+├── package-lock.json
+│
+├── package.json
+│
+└── README.md
 ---
 
 ## Funcionalidades
