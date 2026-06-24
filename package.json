@@ -1,0 +1,25 @@
+{
+  "name": "mi-micro-accesible",
+  "version": "1.0.0",
+  "description": "Proyecto final – Seminario de Lenguajes JavaScript  \r Facultad de Informática – UNLP  \r Grupo 16 – Crucianelli Tomás / Quispe Agustín",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/server/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TomiiCS/mi-micro-accesible.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/TomiiCS/mi-micro-accesible/issues"
+  },
+  "homepage": "https://github.com/TomiiCS/mi-micro-accesible#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
