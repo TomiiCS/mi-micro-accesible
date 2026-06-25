@@ -24,6 +24,7 @@ El proyecto surge a partir de la hackathon “Soluciones por la inclusión 2026�
 - Node.js
 - npm
 - express
+- MongoDB
 
 ---
 
@@ -31,7 +32,7 @@ El proyecto surge a partir de la hackathon “Soluciones por la inclusión 2026�
 
 - Clonar el repositorio:
 
-git clone <url-del-repositorio>
+git clone "url-del-repositorio"
 
 - Entrar al directorio:
 
@@ -40,6 +41,14 @@ cd mi-micro-accesible
 - Instalar dependencias:
 
 npm install
+
+- Instalar MongoDB Community Server e iniciar
+
+mongodb://localhost:27017
+
+- Cargar base de datos: 
+
+node scripts/seed.js
 
 ---
 
@@ -55,6 +64,9 @@ npm run dev
 
 ```text
 mi-micro-accesible/
+│   
+├── scripts/
+│   └── seed.js    
 │
 ├── src/
 │   ├── public/
