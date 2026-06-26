@@ -11,13 +11,18 @@
 <body>  
     <header>
         <section class="titulo">
+            <img src="./assets/bus-solid.png" height="50px" width="50px">
             <h1>Mi Micro Accesible</h1> 
             <p>Interfaz accesible para transporte público</p>
         </section>
         <section class="accesibilidad">
-            <div class="controles-texto"> <button>A-</button><button>A</button><button>A+</button></div>
-            <div class="control-contraste"> <button></button><span> Alto contraste</span></div>
-            <button>Escuchar página</button>
+            <div class="controles-texto"> 
+                <button>A-</button><button>A</button><button>A+</button>
+            </div>
+            <div class="control-contraste"> 
+                <button id="boton-contraste"><img src="./assets/circle-half-stroke-solid.png" height="15px" width="15px"></button><span> Alto contraste</span>
+            </div>
+            <button id="boton-volumen-header"><img src="./assets/volume-solid.png" height="15px" width="15px">Escuchar página</button>
         </section>
     </header>
     <main>
@@ -41,7 +46,7 @@
             <section class="indicaciones">
                 <div class="encabezado-indicaciones">
                     <h2>Indicaciones</h2>
-                    <button id="escucharRecorrido">Escuchar Recorrido</button>
+                    <button id="escuchar-recorrido"><img src="./assets/volume-solid.png" height="15px" width="15px">Escuchar Recorrido</button>
                 </div>
             </section>
         </section>

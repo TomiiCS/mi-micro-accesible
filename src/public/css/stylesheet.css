@@ -40,6 +40,13 @@ main {
     gap: 20px;
 }
 
+#escuchar-recorrido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
 .encabezado-indicaciones{
     display: flex;
     justify-content: space-between;
@@ -74,6 +81,25 @@ header{
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.control-contraste{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#boton-contraste{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#boton-volumen-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 footer{
