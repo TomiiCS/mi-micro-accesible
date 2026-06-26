@@ -94,6 +94,7 @@ mi-micro-accesible/
 │       ├── routes/
 │       │   ├── lineas.routes.js
 │       │   ├── paradas.routes.js
+│       │   ├── puntos.routes.js
 │       │   └── recorridos.routes.js
 │       │
 │       └── app.js

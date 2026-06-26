@@ -7,16 +7,16 @@ router.get("/", async (req, res) => {
     try {
         const db = obtenerDB()
 
-        const lineas = await db
-            .collection("lineas")
+        const puntos = await db
+            .collection("puntos")
             .find({})
             .toArray()
 
-        res.json(lineas)
+        res.json(puntos)
     } catch (error) {
         console.error(error)
         res.status(500).json({
-            error: "Error al obtener las lineas"
+            error: "Error al obtener los puntos"
         });
     }
 });
