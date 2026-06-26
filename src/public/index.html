@@ -6,34 +6,53 @@
     <title>Mi Micro Accesible</title>
     <link rel="stylesheet" href="/leaflet/leaflet.css">
     <link rel="stylesheet" href="./css/stylesheet.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body>  
     <header>
-        <i class="fa-solid fa-bus"></i>
-        <h1>Mi Micro Accesible</h1> 
-        <p>Interfaz accesible para transporte público</p>
-        <div class="controles-texto"> <button>A-</button><button>A</button><button>A+</button></div>
-        <div class="control-contraste"> <button><i class="fa-solid fa-circle-half-stroke"></i> </button> <span>Alto contraste</span></div>
-        <button> <i class="fa-solid fa-volume-high"></i> Escuchar página</button>
+        <section class="titulo">
+            <h1>Mi Micro Accesible</h1> 
+            <p>Interfaz accesible para transporte público</p>
+        </section>
+        <section class="accesibilidad">
+            <div class="controles-texto"> <button>A-</button><button>A</button><button>A+</button></div>
+            <div class="control-contraste"> <button></button><span> Alto contraste</span></div>
+            <button>Escuchar página</button>
+        </section>
     </header>
     <main>
-        <nav class="buscadorRecorrido">
-
+        <nav class="buscador">
+            <h2>Consultar recorrido</h2>
+            <div class="campo"></div>
+                <label for="origen">Origen</label>
+                <select id="origen"></select>
+            </div>
+            <div class="campo">
+                <label for="destino">Destino</label>
+                <select id="destino"></select>
+            </div>
+            <button id="buscar">Buscar recorrido</button>
         </nav>
-        
-        <section class="mapa">
-            <div id="mapa"></div>
+        <section class="recorrido">
+            <section class="mapa">
+                <h2>Mapa</h2>
+                <div id="mapa"></div>
+            </section>
+            <section class="indicaciones">
+                <div class="encabezado-indicaciones">
+                    <h2>Indicaciones</h2>
+                    <button id="escucharRecorrido">Escuchar Recorrido</button>
+                </div>
+            </section>
         </section>
-
-        <article class="recorridoAccesible">
-
-        </article>
     </main>
-    <footer>
 
+    <footer>
+        <p>
+            Seminario de Lenguajes - JavaScript 
+        </p>
     </footer>
+
     <script src="/leaflet/leaflet.js"></script>
     <script type="module" src="./js/app.js"></script>
 </body>

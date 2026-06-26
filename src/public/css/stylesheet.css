@@ -1,4 +1,97 @@
-#mapa {
-    width: 700px;
-    height: 300px;
+html{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    background: #f5f7fa;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 6px 20px;
+}
+
+.buscador{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#buscar {
+    margin-top: 20px;
+}
+
+.recorrido{
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+}
+
+.encabezado-indicaciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#mapa{
+    flex: 1;
+}
+
+.mapa {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 20px;
+    border-bottom: 3px solid#1f4e79;
+}
+
+.titulo{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.accesibilidad{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 20px;
+    background-color: #1f4e79;
+}
+
+.buscador, .mapa, .indicaciones {
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 15px;
+    background: white;
+}
+
+.buscador h2, .mapa h2, .indicaciones h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
 }
