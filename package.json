@@ -21,6 +21,7 @@
   "homepage": "https://github.com/TomiiCS/mi-micro-accesible#readme",
   "dependencies": {
     "express": "^5.2.1",
+    "leaflet": "^1.9.4",
     "mongodb": "^7.3.0"
   }
 }

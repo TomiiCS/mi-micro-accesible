@@ -1,21 +1,23 @@
-async function obtenerPuntos() {
-    const respuesta = await fetch("/puntos")
-    return respuesta.json()
-}
+import {
+    obtenerPuntos,
+    obtenerParadas,
+    obtenerLineas
+} from "./services/api.js";
 
-async function obtenerParadas() {
-    const respuesta = await fetch("/paradas")
-    return respuesta.json()
-}
+import {
+    crearMapa,
+    mostrarPuntos,
+    mostrarParadas,
+    mostrarLineas
+} from "./mapa.js";
 
-async function obtenerLineas() {
-    const respuesta = await fetch("/lineas")
-    return respuesta.json()
-}
+const map = crearMapa();
 
-const puntos = obtenerPuntos()
-const paradas = obtenerParadas()
-const lineas = obtenerLineas()
+const puntos = await obtenerPuntos();
+const paradas = await obtenerParadas();
+const lineas = await obtenerLineas();
 
-//comprobacion de obtencion de datos al backend
-console.log(puntos, paradas, lineas)
+//comprobacion puntos
+mostrarPuntos(map, puntos);
+mostrarParadas(map, paradas);
+mostrarLineas(map, lineas);
