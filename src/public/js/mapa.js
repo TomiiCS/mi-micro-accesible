@@ -5,7 +5,7 @@ export function crearMapa() {
         attribution: "&copy; OpenStreetMap contributors"
     }).addTo(map);
 
-    return map;
+    return map
 }
 
 //funciones temporales para mostrar todo y comprobar
