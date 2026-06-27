@@ -9,6 +9,7 @@ body{
     display: grid;
     grid-template-rows: auto 1fr auto;
     background: #f5f7fa;
+    font-family: "Inter", sans-serif;
 }
 
 main {
