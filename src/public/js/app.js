@@ -12,13 +12,15 @@ import {
     mostrarRecorrido
 } from "./mapa.js"
 
+import { buscarRecorrido } from "./recorridos.js"
+
 const map = crearMapa()
 
 const puntos = await obtenerPuntos()
 const paradas = await obtenerParadas()
 const lineas = await obtenerLineas()
 
-mostrarPuntos(map, puntos);
+mostrarPuntos(map, puntos)
 
 const selectorOrigen = document.getElementById("origen")
 const selectorDestino = document.getElementById("destino")
@@ -50,31 +52,23 @@ function cargarSelector (selector,puntos, puntoExcluir){
 
 selectorOrigen.addEventListener("change", () => {
     selectorDestino.disabled = false
-    console.log()
     cargarSelector(selectorDestino,puntos, selectorOrigen.value)
 })
-
 
 const botonBuscar = document.getElementById("buscar")
 
 botonBuscar.addEventListener("click", () => {
     
-    const paradasOrigen = paradas.filter (parada => parada.puntoId === selectorOrigen.value)
-    const paradasDestino = paradas.filter (parada => parada.puntoId === selectorDestino.value)  
+    const origenId = selectorOrigen.value
+    const destinoId = selectorDestino.value
 
-    const lineaEncontrada = lineas.find(linea => { 
-        const existeOrigen = linea.paradas.some(parada => 
-            paradasOrigen.some(paradaOrigen => 
-            paradaOrigen._id === parada.paradaId ))
-        const existeDestino = linea.paradas.some(parada =>
-            paradasDestino.some(paradaDestino =>
-            paradaDestino._id === parada.paradaId))
-        return existeOrigen && existeDestino
-    })
-    
-    console.log(lineaEncontrada.trayecto);
-    if (lineaEncontrada) {
-        mostrarRecorrido(map, lineaEncontrada.trayecto);
+    const recorrido = buscarRecorrido(origenId, destinoId, paradas, lineas)
+
+    if(recorrido) {
+        mostrarRecorrido(map, recorrido, paradas)
+    }
+    else {
+        alert("No se encontro un recorrido")
     }
 });
 
