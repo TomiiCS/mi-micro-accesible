@@ -8,6 +8,10 @@ export function crearMapa() {
     return map
 }
 
+let recorridoActual = null
+let subidaActual = null
+let bajadaActual = null
+
 //funciones temporales para mostrar todo y comprobar
 export function mostrarPuntos(map, puntos) {
     for (const punto of puntos) {
@@ -40,6 +44,57 @@ export function mostrarLineas(map, lineas) {
     }
 }
 
-export function mostrarRecorrido(map, trayecto) {
-    L.polyline(trayecto).addTo(map);
+export function mostrarRecorrido(map, recorrido, paradas) {
+    limpiarMapa(map)
+
+    const subida = paradas.find(
+        parada => parada._id === recorrido.paradaOrigen.paradaId
+    );
+
+    const bajada = paradas.find(
+        parada => parada._id === recorrido.paradaDestino.paradaId
+    );
+
+    recorridoActual = L.polyline(recorrido.trayecto, {
+        weight: 4
+    })
+    .addTo(map)
+    .bindPopup(`<b>Línea ${recorrido.linea.nombre}</b>`);
+
+    subidaActual = L.circleMarker([subida.lat, subida.lng], {
+            radius: 6,
+            color: "red",
+            fillColor: "red",
+            fillOpacity: 1
+    })
+    .addTo(map)
+    .bindPopup(`<b>Subir aquí</b><br>${subida.nombre}`)   
+    
+    bajadaActual = L.circleMarker([bajada.lat, bajada.lng], {
+            radius: 6,
+            color: "red",
+            fillColor: "red",
+            fillOpacity: 1
+    })
+    .addTo(map)
+    .bindPopup(`<b>Bajar aquí</b><br>${bajada.nombre}`)
+
+    map.fitBounds(recorridoActual.getBounds());
+}
+
+export function limpiarMapa(map) {
+    if (recorridoActual) {
+        map.removeLayer(recorridoActual)
+        recorridoActual = null
+    }
+
+    if (subidaActual) {
+        map.removeLayer(subidaActual)
+        subidaActual = null
+    }
+
+    if (bajadaActual) {
+        map.removeLayer(bajadaActual)
+        bajadaActual = null
+    }
 }
