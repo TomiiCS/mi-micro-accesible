@@ -39,3 +39,7 @@ export function mostrarLineas(map, lineas) {
         .bindPopup(`<b>Línea ${linea.nombre}</b>`)
     }
 }
+
+export function mostrarRecorrido(map, trayecto) {
+    L.polyline(trayecto).addTo(map);
+}

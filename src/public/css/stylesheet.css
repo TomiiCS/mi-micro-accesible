@@ -1,3 +1,10 @@
+:root {
+    --azul-principal: #1f4e79;
+    --azul-boton: #062397;
+    --gris-borde: lightgray;
+    --fondo: #f5f7fa;
+}
+
 html{
     height: 100%;
     margin: 0;
@@ -8,7 +15,7 @@ body{
     margin: 0;
     display: grid;
     grid-template-rows: auto 1fr auto;
-    background: #f5f7fa;
+    background: var(--fondo);
     font-family: "Inter", sans-serif;
 }
 
@@ -26,18 +33,9 @@ main {
     margin-bottom: 20px;
 }
 
-
-#buscar:hover {
-    background: #0d47a1;
-}
-
-#buscar:active {
-    transform: scale(0.98);
-}   
-
 #buscar {
     display: flex;
-    flex-direction: row;
+    background-color: var(--azul-boton);
     gap: 3px;
     margin-top: 20px;
     cursor: pointer;
@@ -74,7 +72,7 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 3px 20px;
-    border-bottom: 4px solid#1f4e79;
+    border-bottom: 4px solid var(--azul-principal);
 }
 
 .titulo{
@@ -113,12 +111,12 @@ footer{
     justify-content: space-between;
     align-items: center;
     padding: 3px 20px;
-    background-color: #1f4e79;
+    background-color: var(--azul-principal);
     color: white;
 }
 
 .buscador, .mapa, .indicaciones {
-    border: 1px solid lightgrey;
+    border: 1px solid var(--gris-borde);
     border-radius: 12px;
     overflow: hidden;
     padding: 0px;
@@ -139,7 +137,7 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: #1f4e79;
+    background: var(--azul-principal);
     padding: 15px;
 }
 
@@ -157,7 +155,7 @@ footer{
 .panel-body button {
     color: white;
     padding: 10px;
-    background-color: #0264c1;
+    background-color: var(--azul-boton);
     border-radius: 6px;
     font-weight: 600;
     font-size: 15px;
@@ -168,6 +166,7 @@ select {
     padding: 10px 12px;
     border-radius: 6px;
 }
+
 .campo label {
     font-size: 1.10rem;
     font-weight: 600;
@@ -175,7 +174,7 @@ select {
 }
 
 button {
-    border-color: lightgray;
+    border-color: var(--gris-borde);
     border-radius: 6px;
     padding: 5px 6px;
 }
@@ -186,4 +185,8 @@ button:hover {
 
 button:active {
     transform: scale(0.98);
+}
+
+#buscar img{
+    filter: brightness(0) invert(1)
 }
