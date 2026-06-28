@@ -8,8 +8,7 @@ import {
     crearMapa,
     mostrarPuntos,
     mostrarParadas,
-    mostrarLineas,
-    mostrarRecorrido
+    mostrarLineas
 } from "./mapa.js"
 
 const map = crearMapa()
@@ -54,14 +53,12 @@ selectorOrigen.addEventListener("change", () => {
     cargarSelector(selectorDestino,puntos, selectorOrigen.value)
 })
 
-
 const botonBuscar = document.getElementById("buscar")
 
-botonBuscar.addEventListener("click", () => {
-    
-    const paradasOrigen = paradas.filter (parada => parada.puntoId === selectorOrigen.value)
-    const paradasDestino = paradas.filter (parada => parada.puntoId === selectorDestino.value)  
 
+botonBuscar.addEventListener("click", () => {
+    const paradasOrigen = paradas.filter (parada => parada.puntoId === selectorOrigen.value)
+    const paradasDestino = paradas.filter (parada => parada.puntoId === selectorDestino.value) 
     const lineaEncontrada = lineas.find(linea => { 
         const existeOrigen = linea.paradas.some(parada => 
             paradasOrigen.some(paradaOrigen => 
@@ -72,7 +69,6 @@ botonBuscar.addEventListener("click", () => {
         return existeOrigen && existeDestino
     })
     
-    console.log(lineaEncontrada.trayecto);
     if (lineaEncontrada) {
         mostrarRecorrido(map, lineaEncontrada.trayecto);
     }
