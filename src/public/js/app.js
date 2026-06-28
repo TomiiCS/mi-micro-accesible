@@ -8,7 +8,8 @@ import {
     crearMapa,
     mostrarPuntos,
     mostrarParadas,
-    mostrarLineas
+    mostrarLineas,
+    mostrarRecorrido
 } from "./mapa.js"
 
 import { buscarRecorrido } from "./recorridos.js"
