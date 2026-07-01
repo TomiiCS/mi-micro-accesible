@@ -57,6 +57,14 @@ main {
     gap: 5px;
 }
 
+.lista-directo {
+    columns: 1;
+}
+
+.lista-combinado {
+    columns: 2;
+}
+
 #mapa{
     flex: 1;
 }

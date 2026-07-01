@@ -76,15 +76,11 @@ mi-micro-accesible/
 │   │   │   └── stylesheet.css
 │   │   │
 │   │   ├── js/
-│   │   │   ├── models/
-│   │   │   │   ├── Linea.js
-│   │   │   │   ├── Parada.js
-│   │   │   │   └── Recorrido.js
-│   │   │   │  
 │   │   │   ├── services/
 │   │   │   │   └── api.js
 │   │   │   │         
 │   │   │   ├── app.js
+│   │   │   ├── indicaciones.js
 │   │   │   ├── mapa.js
 │   │   │   ├── recorridos.js
 │   │   │   └── speech.js
@@ -98,8 +94,7 @@ mi-micro-accesible/
 │       ├── routes/
 │       │   ├── lineas.routes.js
 │       │   ├── paradas.routes.js
-│       │   ├── puntos.routes.js
-│       │   └── recorridos.routes.js
+│       │   └── puntos.routes.js
 │       │
 │       └── app.js
 │

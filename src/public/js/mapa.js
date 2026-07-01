@@ -48,18 +48,14 @@ export function mostrarLineas(map, lineas) {
     }
 }
 
-export function mostrarRecorrido(map, recorrido, paradas) {
+export function mostrarRecorrido(map, recorrido) {
     limpiarMapa(map)
 
     if(recorrido.tipo === "directo") {
 
-        const subida = paradas.find(
-            parada => parada._id === recorrido.paradaOrigen.paradaId
-        );
+        const subida = recorrido.paradaOrigen
 
-        const bajada = paradas.find(
-            parada => parada._id === recorrido.paradaDestino.paradaId
-        );
+        const bajada = recorrido.paradaDestino  
 
         recorridoActual = L.polyline(recorrido.trayecto, {
             weight: 4
@@ -90,21 +86,13 @@ export function mostrarRecorrido(map, recorrido, paradas) {
 
     else {
 
-        const subidaA = paradas.find(
-            parada => parada._id === recorrido.paradaOrigenA.paradaId
-        );
+        const subidaA = recorrido.paradaOrigenA
 
-        const bajadaA = paradas.find(
-            parada => parada._id === recorrido.paradaDestinoA.paradaId
-        );
+        const bajadaA = recorrido.paradaDestinoA
 
-        const subidaB = paradas.find(
-            parada => parada._id === recorrido.paradaOrigenB.paradaId
-        );
+        const subidaB = recorrido.paradaOrigenB
 
-        const bajadaB = paradas.find(
-            parada => parada._id === recorrido.paradaDestinoB.paradaId
-        );
+        const bajadaB = recorrido.paradaDestinoB
 
         recorridoActual = L.polyline(recorrido.trayectoA, {
             weight: 4

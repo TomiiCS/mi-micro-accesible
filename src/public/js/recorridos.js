@@ -33,11 +33,20 @@ function buscarRecorridoDirecto(paradasOrigen, paradasDestino, lineas) {
         if(paradaOrigenLinea && paradaDestinoLinea && paradaOrigenLinea.indiceTrayecto < paradaDestinoLinea.indiceTrayecto) {
 
             const trayecto = linea.trayecto.slice(paradaOrigenLinea.indiceTrayecto, paradaDestinoLinea.indiceTrayecto + 1)
+
+            const paradaOrigen = paradasOrigen.find(
+                parada => parada._id === paradaOrigenLinea.paradaId
+            )
+
+            const paradaDestino = paradasDestino.find(
+                parada => parada._id === paradaDestinoLinea.paradaId
+            )
+
             return {
                 tipo: "directo",
                 linea,
-                paradaOrigen: paradaOrigenLinea,
-                paradaDestino: paradaDestinoLinea,
+                paradaOrigen: paradaOrigen,
+                paradaDestino: paradaDestino,
                 trayecto
             }
         }
@@ -92,7 +101,7 @@ function buscarRecorridoCombinacion(paradasOrigen, paradasDestino, paradas, line
                                 puntoCombinacion: puntoId,
 
                                 paradaOrigenA: primerRecorrido.paradaOrigen,
-                                paradaDestinoA:primerRecorrido.paradaDestino,
+                                paradaDestinoA: primerRecorrido.paradaDestino,
                                 trayectoA: primerRecorrido.trayecto,
 
                                 paradaOrigenB: segundoRecorrido.paradaOrigen,

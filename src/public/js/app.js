@@ -12,6 +12,8 @@ import {
     mostrarRecorrido
 } from "./mapa.js"
 
+import { mostrarIndicaciones } from "./indicaciones.js"
+
 import { buscarRecorrido } from "./recorridos.js"
 
 const map = crearMapa()
@@ -65,7 +67,8 @@ botonBuscar.addEventListener("click", () => {
     const recorrido = buscarRecorrido(origenId, destinoId, paradas, lineas)
 
     if(recorrido) {
-        mostrarRecorrido(map, recorrido, paradas)
+        mostrarRecorrido(map, recorrido)
+        mostrarIndicaciones(recorrido)
     }
     else {
         alert("No se encontro un recorrido")
