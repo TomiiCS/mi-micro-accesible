@@ -8,7 +8,6 @@ import { conectarDB } from "./database/connection.js"
 import puntosRoutes from "./routes/puntos.routes.js"
 import paradasRoutes from "./routes/paradas.routes.js"
 import lineasRoutes from "./routes/lineas.routes.js"
-//import recorridosRoutes from "./routes/recorridos.routes.js"
 
 const app = express()
 
@@ -24,7 +23,6 @@ app.use("/leaflet", express.static(path.join(__dirname, "../../node_modules/leaf
 app.use("/puntos", puntosRoutes)
 app.use("/paradas", paradasRoutes)
 app.use("/lineas", lineasRoutes)
-//app.use("/recorridos", recorridosRoutes)
 
 await conectarDB()
 
