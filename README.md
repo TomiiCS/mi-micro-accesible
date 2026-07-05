@@ -42,11 +42,11 @@ cd mi-micro-accesible
 
 npm install
 
-- Instalar MongoDB Community Server e iniciar
+- Instalar MongoDB Community Server 
 
-mongodb://localhost:27017
+- Iniciar el servidor de MongoDB (por defecto en localhost:27017)
 
-- Cargar base de datos: 
+- Inicializar la base de datos con los datos simulados: 
 
 node scripts/seed.js
 
@@ -108,10 +108,9 @@ mi-micro-accesible/
 
 ## Funcionalidades
 
-- Búsqueda de líneas de micro
-- Visualización de recorridos
-- Visualización de paradas
-- Información clara y estructurada
+- Búsqueda de recorridos de micros entre puntos
+- Visualización de recorridos, paradas y puntos sobre el mapa
+- Idicaciones para los recorridos
 - Interfaz accesible
 - Uso de datos simulados
 
@@ -125,6 +124,9 @@ El proyecto prioriza:
 - Jerarquía visual clara
 - Uso de HTML semántico
 - Diseño de baja carga cognitiva
+- Alto contraste
+- Ajuste del tamaño de la fuente
+- Lectura por voz de la interfaz y de indicaciones
 
 ---
 
@@ -133,9 +135,3 @@ El proyecto prioriza:
 Se utiliza Git para control de versiones.
 
 Se trabaja con ramas para nuevas funcionalidades y luego se integran mediante merge al branch principal.
-
----
-
-## Estado del proyecto
-
-En desarrollo
