@@ -36,7 +36,7 @@ main {
 #buscar {
     display: flex;
     background-color: var(--azul-boton);
-    gap: 3px;
+    gap: 8px;
     margin-top: 20px;
     cursor: pointer;
     align-items: center;
@@ -98,16 +98,16 @@ header{
 .control-contraste{
     display: flex;
     align-items: center;
-    gap: 5px;
 }
 
 #boton-contraste{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px; 
 }
 
-#boton-volumen-header{
+#escuchar-pagina{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -185,6 +185,8 @@ button {
     border-color: var(--gris-borde);
     border-radius: 6px;
     padding: 5px 6px;
+    font-size: 1rem;
+    font-family: inherit;
 }
 
 button:hover {
@@ -197,4 +199,82 @@ button:active {
 
 #buscar img{
     filter: brightness(0) invert(1)
+}
+
+.activo {
+    background-color: #4972b8;
+    color: white;
+}
+
+.alto-contraste {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+.alto-contraste header {
+    background-color: #0f172a;
+    border-bottom-color: #60a5fa;
+}
+
+.alto-contraste footer {
+    background-color: #020617;
+    color: #f8fafc;
+    border-top: 2px solid #60a5fa;
+}
+.alto-contraste .buscador,
+.alto-contraste .mapa,
+.alto-contraste .indicaciones {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #60a5fa;
+}
+
+.alto-contraste .panel-header {
+    background-color: #1d4ed8;
+}
+
+.alto-contraste button {
+    background-color: #2563eb;
+    color: white;
+    border: 1px solid #60a5fa;
+}
+
+.alto-contraste button:hover {
+    background-color: #3b82f6;
+}
+
+.alto-contraste select {
+    background-color: #0f172a;
+    color: white;
+    border: 1px solid #60a5fa;
+}
+
+.control-contraste img,
+#escuchar-pagina img,
+#escuchar-recorrido img {
+    height: 15px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+#buscar img {
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.controles-texto {
+    display: flex;
+    gap: 4px;
+}
+
+.controles-texto button {
+    width: 2.5em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
 }

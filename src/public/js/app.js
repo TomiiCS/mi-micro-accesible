@@ -16,6 +16,12 @@ import { mostrarIndicaciones } from "./indicaciones.js"
 
 import { buscarRecorrido } from "./recorridos.js"
 
+import { leerRecorrido,
+         cambiarModoLectura,
+         anunciar       
+} from "./speech.js"
+
+
 const map = crearMapa()
 
 const puntos = await obtenerPuntos()
@@ -71,7 +77,51 @@ botonBuscar.addEventListener("click", () => {
         mostrarIndicaciones(recorrido)
     }
     else {
-        alert("No se encontro un recorrido")
+        anunciar("No se encontró un recorrido.")
+        alert("No se encontró un recorrido") 
     }
 });
 
+const botonEscucharRecorrido = document.getElementById("escuchar-recorrido")
+
+botonEscucharRecorrido.addEventListener("click", leerRecorrido)
+
+const botonEscucharPagina = document.getElementById("escuchar-pagina")
+
+botonEscucharPagina.addEventListener("click", cambiarModoLectura)
+
+const botonContraste = document.getElementById("boton-contraste")
+
+botonContraste.addEventListener("click", () => {
+
+    document.body.classList.toggle("alto-contraste")
+
+})
+
+
+const botonDisminuir = document.getElementById("disminuir-fuente")
+const botonNormal = document.getElementById("restablecer-fuente")
+const botonAumentar = document.getElementById("aumentar-fuente")
+
+let escala = 100 // porcentaje, 100% = tamaño normal (16px base)
+
+function actualizarFuente() {
+    document.documentElement.style.fontSize = `${escala}%`
+}
+
+botonAumentar.addEventListener("click", () => {
+    if (escala >= 150) return
+    escala += 10
+    actualizarFuente()
+})
+
+botonDisminuir.addEventListener("click", () => {
+    if (escala <= 70) return
+    escala -= 10
+    actualizarFuente()
+})
+
+botonNormal.addEventListener("click", () => {
+    escala = 100
+    actualizarFuente()
+})

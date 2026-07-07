@@ -18,12 +18,15 @@
         </section>
         <section class="accesibilidad">
             <div class="controles-texto"> 
-                <button>A-</button><button>A</button><button>A+</button>
+                <button id="disminuir-fuente" aria-label="Disminuir tamaño de letra" >A-</button><button id="restablecer-fuente" aria-label="Restablecer tamaño de letra ">A</button><button id="aumentar-fuente" aria-label="Aumentar tamaño de letra" >A+</button>
             </div>
             <div class="control-contraste"> 
-                <button id="boton-contraste"><img src="./assets/circle-half-stroke-solid.png" height="15px" width="15px"></button><span> Alto contraste</span>
+                <button id="boton-contraste" aria-label="Activar o desactivar el alto contraste"> <img src="./assets/circle-half-stroke-solid.png"><span> Alto contraste</span></button>
             </div>
-            <button id="boton-volumen-header"><img src="./assets/volume-solid.png" height="15px" width="15px">Escuchar página</button>
+            <button id="escuchar-pagina" aria-label="Activar o desactivar el modo de lectura de la página" aria-pressed="false">
+                <img src="./assets/volume-solid.png">
+                <span id="texto-escuchar"> Escuchar página </span>
+            </button>
         </section>
     </header>
 
@@ -39,20 +42,20 @@
                     <label for="destino">Destino</label>
                     <select id="destino" ></select>
                 </div>
-                <button id="buscar"><img src="./assets/magnifying-glass-solid.png" height="20px" width="20px">Buscar recorrido</button>
+                <button id="buscar"><img src="./assets/magnifying-glass-solid.png">Buscar recorrido</button>
              </div>
         </nav>
         <section class="recorrido">
             <section class="mapa">
                 <div class="panel-header"><h2>Mapa</h2></div>
-                <div id="mapa"></div>
+                <div id="mapa" aria-label="Mapa con el recorrido seleccionado"></div>
             </section>
             <section class="indicaciones">
                 <div class="panel-header"><h2>Indicaciones</h2>
-                    <button id="escuchar-recorrido"><img src="./assets/volume-solid.png" height="15px" width="15px">Escuchar Recorrido</button>
+                    <button id="escuchar-recorrido" aria-label="Escuchar las indicaciones del recorrido" ><img src="./assets/volume-solid.png">Escuchar Recorrido</button>
                 </div>
                 <div class="lista-indicaciones">
-                    <ol id="lista"></ol>
+                    <ol id="lista" aria-live="polite"></ol></ol>
                 </div>
             </section>
         </section>
