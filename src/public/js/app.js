@@ -83,15 +83,12 @@ botonBuscar.addEventListener("click", () => {
 });
 
 const botonEscucharRecorrido = document.getElementById("escuchar-recorrido")
-
-botonEscucharRecorrido.addEventListener("click", leerRecorrido)
-
 const botonEscucharPagina = document.getElementById("escuchar-pagina")
-
-botonEscucharPagina.addEventListener("click", cambiarModoLectura)
-
 const botonContraste = document.getElementById("boton-contraste")
 
+
+botonEscucharRecorrido.addEventListener("click", leerRecorrido)
+botonEscucharPagina.addEventListener("click", cambiarModoLectura)
 botonContraste.addEventListener("click", () => {
 
     document.body.classList.toggle("alto-contraste")
@@ -99,24 +96,25 @@ botonContraste.addEventListener("click", () => {
 })
 
 
+
 const botonDisminuir = document.getElementById("disminuir-fuente")
 const botonNormal = document.getElementById("restablecer-fuente")
 const botonAumentar = document.getElementById("aumentar-fuente")
 
-let escala = 100 // porcentaje, 100% = tamaño normal (16px base)
+let escala = 100 
 
 function actualizarFuente() {
     document.documentElement.style.fontSize = `${escala}%`
 }
 
 botonAumentar.addEventListener("click", () => {
-    if (escala >= 150) return
+    if (escala >= 120) return
     escala += 10
     actualizarFuente()
 })
 
 botonDisminuir.addEventListener("click", () => {
-    if (escala <= 70) return
+    if (escala <= 80) return
     escala -= 10
     actualizarFuente()
 })

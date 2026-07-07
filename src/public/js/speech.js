@@ -12,8 +12,8 @@ export function leerRecorrido () {
     const pasos = document.querySelectorAll("#lista li")
     
     if (pasos.length === 0) {
-        hablar("No hay un recorrido para leer.")
-        return
+      if (!modoLectura) return
+      hablar("No hay un recorrido para leer.")
     }
 
     const texto = [... pasos]
@@ -47,13 +47,14 @@ const selectorOrigen = document.getElementById("origen")
 const selectorDestino = document.getElementById("destino")
 const botonBuscar = document.getElementById("buscar")
 const botonContraste = document.getElementById("boton-contraste")
-const botonEscucharRecorrido = document.getElementById("escuchar-recorrido")
+const botonEscucharRecorrido = document.getElementById("escuchar-recorrido") // No lo use por un problema al pisarse con otro lector, y buguearse.
 
 
 const botonDisminuir = document.getElementById("disminuir-fuente")
 const botonNormal = document.getElementById("restablecer-fuente")
 const botonAumentar = document.getElementById("aumentar-fuente")
 
+const mapa = document.getElementById("mapa")
 
 function agregarLectura(elemento, mensaje) {
     elemento.addEventListener("focus", () => {
@@ -71,7 +72,7 @@ agregarLectura(botonContraste, "Botón Alto contraste.")
 agregarLectura(botonDisminuir, "Disminuir tamaño de letra.")
 agregarLectura(botonNormal, "Restablecer tamaño de letra.")
 agregarLectura(botonAumentar, "Aumentar tamaño de letra.")
-
+agregarLectura(mapa, "Mapa del recorrido.")
 
 selectorOrigen.addEventListener("change", () => {
 
