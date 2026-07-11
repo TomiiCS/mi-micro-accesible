@@ -31,20 +31,36 @@
     </header>
 
     <main>
-        <nav class="buscador">
-             <div class="panel-header"><h2>Consultar recorrido</h2></div>
-             <div class="panel-body">
-                <div class="campo">
-                    <label for="origen">Origen</label>
-                    <select id="origen" ></select>
+        <section class="columna-izquierda">
+            <nav class="buscador">
+                <div class="panel-header"><h2>Consultar recorrido</h2></div>
+                <div class="panel-body">
+                    <div class="campo">
+                        <label for="origen">Origen</label>
+                        <select id="origen" ></select>
+                    </div>
+                    <div class="campo">
+                        <label for="destino">Destino</label>
+                        <select id="destino" ></select>
+                    </div>
+                    <button id="buscar"><img src="./assets/magnifying-glass-solid.png">Buscar recorrido</button>
                 </div>
-                <div class="campo">
-                    <label for="destino">Destino</label>
-                    <select id="destino" ></select>
+            </nav>
+            <section class="informacion">
+                <div class="panel-header"><h2>Cómo usar</h2></div>
+                <div class="panel-body">
+                    <p>
+                        Seleccione un origen y un destino para consultar un recorrido.
+                    </p>
+                    <ul>
+                        <li>Modo alto contraste</li>
+                        <li>Lectura por voz</li>
+                        <li>Controles de tamaño de texto</li>
+                        <li>Visualización del recorrido en mapa</li>
+                    </ul>
                 </div>
-                <button id="buscar"><img src="./assets/magnifying-glass-solid.png">Buscar recorrido</button>
-             </div>
-        </nav>
+            </section>
+        </section>
         <section class="recorrido">
             <section class="mapa">
                 <div class="panel-header"><h2>Mapa</h2></div>

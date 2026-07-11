@@ -50,7 +50,6 @@ const botonBuscar = document.getElementById("buscar")
 const botonContraste = document.getElementById("boton-contraste")
 const botonEscucharRecorrido = document.getElementById("escuchar-recorrido") // No lo use por un problema al pisarse con otro lector, y buguearse.
 
-
 const botonDisminuir = document.getElementById("disminuir-fuente")
 const botonNormal = document.getElementById("restablecer-fuente")
 const botonAumentar = document.getElementById("aumentar-fuente")
@@ -84,7 +83,6 @@ selectorOrigen.addEventListener("change", () => {
     hablar(`Origen seleccionado. ${opcion}.`)
 })
 
-
 selectorDestino.addEventListener("change", () => { 
     if (!modoLectura) return
 
@@ -92,7 +90,6 @@ selectorDestino.addEventListener("change", () => {
 
     hablar(`Destino seleccionado. ${opcion}.`)
 })
-
 
 export function anunciar(texto) {
     console.log("modoLectura:", modoLectura)

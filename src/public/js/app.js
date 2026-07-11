@@ -16,19 +16,17 @@ import { mostrarIndicaciones } from "./indicaciones.js"
 
 import { buscarRecorrido } from "./recorridos.js"
 
-import { leerRecorrido,
-         cambiarModoLectura,
-         anunciar       
+import { 
+    leerRecorrido,
+    cambiarModoLectura,
+    anunciar       
 } from "./speech.js"
-
 
 const map = crearMapa()
 
 const puntos = await obtenerPuntos()
 const paradas = await obtenerParadas()
 const lineas = await obtenerLineas()
-
-mostrarPuntos(map, puntos)
 
 const selectorOrigen = document.getElementById("origen")
 const selectorDestino = document.getElementById("destino")
@@ -93,7 +91,6 @@ const botonEscucharRecorrido = document.getElementById("escuchar-recorrido")
 const botonEscucharPagina = document.getElementById("escuchar-pagina")
 const botonContraste = document.getElementById("boton-contraste")
 
-
 botonEscucharRecorrido.addEventListener("click", leerRecorrido)
 botonEscucharPagina.addEventListener("click", cambiarModoLectura)
 botonContraste.addEventListener("click", () => {
@@ -101,8 +98,6 @@ botonContraste.addEventListener("click", () => {
     document.body.classList.toggle("alto-contraste")
 
 })
-
-
 
 const botonDisminuir = document.getElementById("disminuir-fuente")
 const botonNormal = document.getElementById("restablecer-fuente")

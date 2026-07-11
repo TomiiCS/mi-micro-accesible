@@ -30,14 +30,14 @@ main {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #buscar {
     display: flex;
     background-color: var(--azul-boton);
     gap: 8px;
-    margin-top: 20px;
+    margin-top: 5px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
@@ -127,7 +127,13 @@ footer{
     color: white;
 }
 
-.buscador, .mapa, .indicaciones {
+.columna-izquierda {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+.buscador, .informacion, .mapa, .indicaciones {
     border: 1px solid var(--gris-borde);
     border-radius: 12px;
     overflow: hidden;
@@ -140,9 +146,24 @@ footer{
     flex-direction: column;
 }
 
-.buscador h2, .mapa h2, .indicaciones h2 {
+.buscador h2, .informacion h2, .mapa h2, .indicaciones h2 {
     margin-top: 0;
     margin-bottom: 12px;
+}
+
+.informacion .panel-body p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.informacion .panel-body ul {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+
+.informacion .panel-body li {
+    margin-bottom: 2px;
 }
 
 .panel-header {
@@ -225,7 +246,9 @@ button:active {
     color: #f8fafc;
     border-top: 2px solid #60a5fa;
 }
+
 .alto-contraste .buscador,
+.alto-contraste .informacion,
 .alto-contraste .mapa,
 .alto-contraste .indicaciones {
     background-color: #1e293b;
