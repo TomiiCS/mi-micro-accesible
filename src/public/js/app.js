@@ -75,6 +75,13 @@ botonBuscar.addEventListener("click", () => {
     if(recorrido) {
         mostrarRecorrido(map, recorrido)
         mostrarIndicaciones(recorrido)
+
+        if (recorrido.tipo === "directo") {
+            anunciar(`Se encontró un recorrido directo por la línea ${recorrido.linea.nombre}.`)
+        }
+        else {
+            anunciar(`Se encontró un recorrido con combinación entre las líneas ${recorrido.lineaA.nombre} y ${recorrido.lineaB.nombre}.`)
+        }
     }
     else {
         anunciar("No se encontró un recorrido.")

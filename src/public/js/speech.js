@@ -14,6 +14,7 @@ export function leerRecorrido () {
     if (pasos.length === 0) {
       if (!modoLectura) return
       hablar("No hay un recorrido para leer.")
+      return;
     }
 
     const texto = [... pasos]

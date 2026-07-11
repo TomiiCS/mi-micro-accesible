@@ -89,6 +89,10 @@ header{
     gap: 30px;
 }
 
+.titulo p {
+    padding-top: 4px;
+}
+
 .accesibilidad{
     display: flex;
     align-items: center;
