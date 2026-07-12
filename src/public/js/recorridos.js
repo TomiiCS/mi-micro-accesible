@@ -1,9 +1,9 @@
-export function buscarRecorrido(origenId, destinoId, paradas, lineas) {
+export function buscarRecorrido(origenId, destinoId, puntos, paradas, lineas) {
 
     const paradasOrigen = paradas.filter (parada => parada.puntoId === origenId)
     const paradasDestino = paradas.filter (parada => parada.puntoId === destinoId)  
 
-    const recorrido = buscarRecorridoDirecto(paradasOrigen, paradasDestino, lineas)
+    const recorrido = buscarRecorridoDirecto(paradasOrigen, paradasDestino, puntos, lineas)
 
     //caso directo
     if(recorrido) {
@@ -11,15 +11,23 @@ export function buscarRecorrido(origenId, destinoId, paradas, lineas) {
     }
     //caso combinado
     else {
-        return buscarRecorridoCombinacion(paradasOrigen, paradasDestino, paradas, lineas)
+        return buscarRecorridoCombinacion(paradasOrigen, paradasDestino, puntos, paradas, lineas)
     }
 
 }
 
-function buscarRecorridoDirecto(paradasOrigen, paradasDestino, lineas) {
+function buscarRecorridoDirecto(paradasOrigen, paradasDestino, puntos, lineas) {
 
     //busco en cada linea, si alguna tiene como parada origen y destino los que buscamos
     for(const linea of lineas) {
+
+        const puntoOrigen = puntos.find(
+            punto => punto._id === paradasOrigen[0].puntoId
+        )
+
+        const puntoDestino = puntos.find(
+            punto => punto._id === paradasDestino[0].puntoId
+        )
 
         const paradaOrigenLinea = linea.paradas.find( paradaLinea =>
             paradasOrigen.some( parada => parada._id === paradaLinea.paradaId)
@@ -30,7 +38,7 @@ function buscarRecorridoDirecto(paradasOrigen, paradasDestino, lineas) {
         )
 
         //comprobacion
-        if(paradaOrigenLinea && paradaDestinoLinea && paradaOrigenLinea.indiceTrayecto < paradaDestinoLinea.indiceTrayecto) {
+        if(puntoOrigen && puntoDestino && paradaOrigenLinea && paradaDestinoLinea && paradaOrigenLinea.indiceTrayecto < paradaDestinoLinea.indiceTrayecto) {
 
             const trayecto = linea.trayecto.slice(paradaOrigenLinea.indiceTrayecto, paradaDestinoLinea.indiceTrayecto + 1)
 
@@ -45,6 +53,8 @@ function buscarRecorridoDirecto(paradasOrigen, paradasDestino, lineas) {
             return {
                 tipo: "directo",
                 linea,
+                puntoOrigen,
+                puntoDestino,
                 paradaOrigen: paradaOrigen,
                 paradaDestino: paradaDestino,
                 trayecto
@@ -57,16 +67,24 @@ function buscarRecorridoDirecto(paradasOrigen, paradasDestino, lineas) {
 
 }
 
-function buscarRecorridoCombinacion(paradasOrigen, paradasDestino, paradas, lineas) {
+function buscarRecorridoCombinacion(paradasOrigen, paradasDestino, puntos, paradas, lineas) {
     
     //busco en lineas, si alguna tiene como origen el que buscamos
     for(const lineaA of lineas) {
+
+        const puntoOrigen = puntos.find(
+            punto => punto._id === paradasOrigen[0].puntoId
+        )
+
+        const puntoDestino = puntos.find(
+            punto => punto._id === paradasDestino[0].puntoId
+        )
 
         const origen = lineaA.paradas.find( paradaLinea =>
             paradasOrigen.some( parada => parada._id === paradaLinea.paradaId)
         )
 
-        if(origen) {
+        if(puntoOrigen && puntoDestino && origen) {
 
             //tomo la parada de la linea encontrada
             for(const paradaLineaA of lineaA.paradas) {
@@ -85,17 +103,21 @@ function buscarRecorridoCombinacion(paradasOrigen, paradasDestino, paradas, line
                     const otrasLineas = lineas.filter(linea => linea._id !== lineaA._id)
 
                     //busco segundo recorrido
-                    const segundoRecorrido = buscarRecorridoDirecto(paradasCombinacion, paradasDestino, otrasLineas)
+                    const segundoRecorrido = buscarRecorridoDirecto(paradasCombinacion, paradasDestino, puntos, otrasLineas)
 
                     if(segundoRecorrido) {
 
                         //busco primer recorrido
-                        const primerRecorrido = buscarRecorridoDirecto(paradasOrigen, paradasCombinacion, [lineaA])
+                        const primerRecorrido = buscarRecorridoDirecto(paradasOrigen, paradasCombinacion, puntos, [lineaA])
 
                         if(primerRecorrido) {
 
                             return {
                                 tipo: "combinacion",
+
+                                puntoOrigen,
+                                puntoDestino,
+
                                 lineaA: primerRecorrido.linea,
                                 lineaB: segundoRecorrido.linea,
                                 puntoCombinacion: puntoId,

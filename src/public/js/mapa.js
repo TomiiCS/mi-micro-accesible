@@ -8,6 +8,9 @@ export function crearMapa() {
     return map
 }
 
+let origenActual = null
+let destinoActual = null
+
 let recorridoActual = null
 let subidaActual = null
 let bajadaActual = null
@@ -50,6 +53,14 @@ export function mostrarLineas(map, lineas) {
 
 export function mostrarRecorrido(map, recorrido) {
     limpiarMapa(map)
+
+    origenActual = L.marker([recorrido.puntoOrigen.lat, recorrido.puntoOrigen.lng])
+    .addTo(map)
+    .bindPopup(`<b>Origen</b><br>${recorrido.puntoOrigen.nombre}`)
+
+    destinoActual = L.marker([recorrido.puntoDestino.lat, recorrido.puntoDestino.lng])
+    .addTo(map)
+    .bindPopup(`<b>Destino</b><br>${recorrido.puntoDestino.nombre}`)
 
     if(recorrido.tipo === "directo") {
 
@@ -151,6 +162,17 @@ export function mostrarRecorrido(map, recorrido) {
 }
 
 export function limpiarMapa(map) {
+
+    if (origenActual) {
+        map.removeLayer(origenActual)
+        origenActual = null
+    }
+
+    if (destinoActual) {
+        map.removeLayer(destinoActual)
+        destinoActual = null
+    }
+
     if (recorridoActual) {
         map.removeLayer(recorridoActual)
         recorridoActual = null
@@ -168,16 +190,16 @@ export function limpiarMapa(map) {
 
     if (recorridoActual2) {
         map.removeLayer(recorridoActual2)
-        recorridoActual = null
+        recorridoActual2 = null
     }
 
     if (subidaActual2) {
         map.removeLayer(subidaActual2)
-        subidaActual = null
+        subidaActual2 = null
     }
 
     if (bajadaActual2) {
         map.removeLayer(bajadaActual2)
-        bajadaActual = null
+        bajadaActual2 = null
     }
 }

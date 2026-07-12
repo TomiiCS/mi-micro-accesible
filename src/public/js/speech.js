@@ -92,7 +92,7 @@ selectorDestino.addEventListener("change", () => {
 })
 
 export function anunciar(texto) {
-    console.log("modoLectura:", modoLectura)
+    
     if (!modoLectura) return
 
     hablar(texto)

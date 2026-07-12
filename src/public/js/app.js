@@ -68,7 +68,7 @@ botonBuscar.addEventListener("click", () => {
     const origenId = selectorOrigen.value
     const destinoId = selectorDestino.value
 
-    const recorrido = buscarRecorrido(origenId, destinoId, paradas, lineas)
+    const recorrido = buscarRecorrido(origenId, destinoId, puntos, paradas, lineas)
 
     if(recorrido) {
         mostrarRecorrido(map, recorrido)
