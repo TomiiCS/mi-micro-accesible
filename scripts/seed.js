@@ -8,7 +8,7 @@ async function seed() {
     try {
         //conectarse
         await client.connect()
-        const db = client.db("mi-micro-accesible")
+        const db = client.db("miMicroAccesible")
 
         //limpiar base
         await db.collection("puntos").deleteMany({})
