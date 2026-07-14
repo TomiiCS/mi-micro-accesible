@@ -161,45 +161,20 @@ export function mostrarRecorrido(map, recorrido) {
 
 }
 
+function removerElemento(map, elemento) {
+    if (elemento) {
+        map.removeLayer(elemento)
+    }
+    return null
+}
+
 export function limpiarMapa(map) {
-
-    if (origenActual) {
-        map.removeLayer(origenActual)
-        origenActual = null
-    }
-
-    if (destinoActual) {
-        map.removeLayer(destinoActual)
-        destinoActual = null
-    }
-
-    if (recorridoActual) {
-        map.removeLayer(recorridoActual)
-        recorridoActual = null
-    }
-
-    if (subidaActual) {
-        map.removeLayer(subidaActual)
-        subidaActual = null
-    }
-
-    if (bajadaActual) {
-        map.removeLayer(bajadaActual)
-        bajadaActual = null
-    }
-
-    if (recorridoActual2) {
-        map.removeLayer(recorridoActual2)
-        recorridoActual2 = null
-    }
-
-    if (subidaActual2) {
-        map.removeLayer(subidaActual2)
-        subidaActual2 = null
-    }
-
-    if (bajadaActual2) {
-        map.removeLayer(bajadaActual2)
-        bajadaActual2 = null
-    }
+    origenActual = removerElemento(map, origenActual)
+    destinoActual = removerElemento(map, destinoActual)
+    recorridoActual = removerElemento(map, recorridoActual)
+    subidaActual = removerElemento(map, subidaActual)
+    bajadaActual = removerElemento(map, bajadaActual)
+    recorridoActual2 = removerElemento(map, recorridoActual2)
+    subidaActual2 = removerElemento(map, subidaActual2)
+    bajadaActual2 = removerElemento(map, bajadaActual2)
 }

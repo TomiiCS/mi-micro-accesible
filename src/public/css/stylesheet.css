@@ -270,6 +270,12 @@ button:active {
     background-color: #3b82f6;
 }
 
+.alto-contraste #escuchar-recorrido {
+    background-color: #ffffff;
+    border: 1px solid #60a5fa;
+    color:#020617;
+}
+
 .alto-contraste select {
     background-color: #0f172a;
     color: white;
@@ -309,11 +315,6 @@ button:active {
 button:focus-visible,
 select:focus-visible,
 a:focus-visible{
-    outline: 3px solid #ffbf47;
-    outline-offset: 2px;
-}
-
-.mapa:focus-visible {
     outline: 3px solid #ffbf47;
     outline-offset: 2px;
 }
