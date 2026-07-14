@@ -40,6 +40,7 @@ function cargarSelector (selector,puntos, puntoExcluir){
     selector.innerHTML = ""
 
     const opcion = document.createElement("option")
+    opcion.value = ""
     opcion.textContent = "--- Selecciona un punto ---" 
     opcion.disabled = true
     opcion.selected = true
@@ -68,6 +69,12 @@ botonBuscar.addEventListener("click", () => {
     
     const origenId = selectorOrigen.value
     const destinoId = selectorDestino.value
+
+    if(!origenId || !destinoId) {
+        anunciar("Origen o destino no seleccionados")
+        alert("Origen o destino no seleccionados")
+        return
+    }
 
     const recorrido = buscarRecorrido(origenId, destinoId, puntos, paradas, lineas)
 
