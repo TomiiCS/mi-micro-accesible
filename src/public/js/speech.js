@@ -37,9 +37,7 @@ export function cambiarModoLectura () {
 
     const textoBoton  = document.getElementById("texto-escuchar")
     
-    textoBoton.textContent = modoLectura
-    ? "Escuchar página (Activado)"
-    : "Escuchar página"
+    textoBoton.textContent = modoLectura ? "Escuchar página (Activado)" : "Escuchar página"
 
     modoLectura ? hablar("Modo lectura activado.") : speechSynthesis.cancel()
 }
@@ -49,6 +47,7 @@ const selectorDestino = document.getElementById("destino")
 const botonBuscar = document.getElementById("buscar")
 const botonContraste = document.getElementById("boton-contraste")
 const botonEscucharRecorrido = document.getElementById("escuchar-recorrido") // No lo use por un problema al pisarse con otro lector, y buguearse.
+const botonModoLectura = document.getElementById("escuchar-pagina")
 
 const botonDisminuir = document.getElementById("disminuir-fuente")
 const botonNormal = document.getElementById("restablecer-fuente")
@@ -73,6 +72,8 @@ agregarLectura(botonDisminuir, "Disminuir tamaño de letra.")
 agregarLectura(botonNormal, "Restablecer tamaño de letra.")
 agregarLectura(botonAumentar, "Aumentar tamaño de letra.")
 agregarLectura(mapa, "Mapa del recorrido.")
+agregarLectura(botonEscucharRecorrido, "Botón escuchar recorrido.")
+agregarLectura(botonModoLectura,"Botón activar o desactivar modo lectura.")
 
 selectorOrigen.addEventListener("change", () => {
 
@@ -90,6 +91,14 @@ selectorDestino.addEventListener("change", () => {
 
     hablar(`Destino seleccionado. ${opcion}.`)
 })
+
+export function activarLecturaZoom() {
+    const botonZoomIn = document.querySelector(".leaflet-control-zoom-in");
+    const botonZoomOut = document.querySelector(".leaflet-control-zoom-out");
+
+    agregarLectura(botonZoomIn, "Aumentar zoom del mapa");
+    agregarLectura(botonZoomOut, "Disminuir zoom del mapa");
+}
 
 export function anunciar(texto) {
     

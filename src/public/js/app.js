@@ -19,7 +19,8 @@ import { buscarRecorrido } from "./recorridos.js"
 import { 
     leerRecorrido,
     cambiarModoLectura,
-    anunciar       
+    anunciar,
+    activarLecturaZoom     
 } from "./speech.js"
 
 const map = crearMapa()
@@ -125,3 +126,5 @@ botonNormal.addEventListener("click", () => {
     escala = 100
     actualizarFuente()
 })
+
+activarLecturaZoom();
